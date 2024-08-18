@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import Layout from '../../components/Layout/index';
 import Link from 'next/link';
+
 const Dashboard: React.FC = () => {
     const [isCollapsed, setIsCollapsed] = useState(false);
 
@@ -7,195 +9,9 @@ const Dashboard: React.FC = () => {
     setIsCollapsed(!isCollapsed);
   };
   return (
+    <Layout signed>
+
     <div className="layout">
-      <div className="py-4 px-6 h-screen border-r border-secondary-600 bg-white dark:bg-bg-dark min-h-screen sticky top-0 duration-300 overflow-scroll" style={{ width: '57rem' }}>
-      <div className={`layout ${isCollapsed ? 'collapsed' : ''}`}>
-      {/* Sidebar */}
-      <div className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
-        <button 
-          onClick={toggleSidebar} 
-          className={`w-[30px] h-[30px] rounded-l-lg overflow-hidden absolute right-0 top-[80px] grid place-content-center ${isCollapsed ? 'rotate-180' : ''}`}
-        >
-          <div className="absolute left-0 w-full gradient from-primary-200 to-primary-300 bg-gradient-to-r top-0 h-full"></div>
-          <svg 
-            width="15" 
-            height="15" 
-            viewBox="0 0 15 15" 
-            fill="none" 
-            className="z-10 relative" 
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M12.2929 13.9615C12.4641 14.1802 12.7151 14.322 12.9907 14.3556C13.2664 14.3892 13.5441 14.3119 13.7628 14.1408C13.9814 13.9696 14.1232 13.7186 14.1568 13.443C14.1904 13.1674 14.1131 12.8896 13.942 12.671L9.5172 7.17066L14.1059 1.68059C14.1921 1.57709 14.2571 1.4576 14.2971 1.32894C14.3371 1.20029 14.3513 1.06502 14.3389 0.93086C14.3266 0.796705 14.2879 0.66631 14.225 0.547139C14.1622 0.427969 14.0764 0.322365 13.9727 0.236379C13.7885 0.0836802 13.5565 0.000330686 13.3172 0.000798256C13.1667 0.000553871 13.018 0.0334673 12.8817 0.0971983C12.7454 0.160929 12.6248 0.253913 12.5285 0.369535L7.40723 6.51513C7.25658 6.6984 7.17423 6.92829 7.17423 7.16554C7.17423 7.40278 7.25658 7.63267 7.40723 7.81595L12.2929 13.9615Z" fill="white"></path>
-            <path d="M0.227925 7.82549L5.12388 13.9711C5.2084 14.0763 5.31289 14.1638 5.43133 14.2285C5.54977 14.2932 5.67983 14.3339 5.81404 14.3481C5.94825 14.3624 6.08395 14.35 6.21336 14.3117C6.34276 14.2733 6.46331 14.2098 6.56808 14.1247C6.6733 14.0402 6.76077 13.9357 6.82548 13.8173C6.89019 13.6988 6.93085 13.5688 6.94512 13.4346C6.9594 13.3003 6.94701 13.1646 6.90867 13.0352C6.87034 12.9058 6.8068 12.7853 6.72172 12.6805L2.34814 7.1802L6.93681 1.67989C7.02306 1.57639 7.08804 1.45689 7.12803 1.32824C7.16802 1.19959 7.18224 1.06431 7.16987 0.93016C7.1575 0.796005 7.11879 0.665607 7.05595 0.546437C6.99311 0.427267 6.90738 0.321663 6.80366 0.235677C6.61798 0.0866602 6.38619 0.00698248 6.14814 0.0103386C5.99766 0.0100942 5.84898 0.0430077 5.71267 0.106739C5.57636 0.17047 5.45576 0.263453 5.35946 0.379075L0.238167 6.52467C0.0860691 6.70676 0.00189945 6.936 3.13608e-05 7.17325C-0.00183673 7.41049 0.0787123 7.64103 0.227925 7.82549V7.82549Z" fill="white"></path>
-          </svg>
-        </button>
-      <div className="flex flex-col h-full justify-between">
-        <div>
-          <Link className="flex items-center gap-[14px] mt-6 py-6 px-5" href="/">
-            <img alt="" loading="lazy" width="72" height="72" decoding="async" data-nimg="1" srcSet="/_next/image?url=%2Fimages%2Flogo%40head.png&w=96&q=75 1x, /_next/image?url=%2Fimages%2Flogo%40head.png&w=256&q=75 2x" src="/_next/image?url=%2Fimages%2Flogo%40head.png&w=256&q=75" style={{ color: 'transparent' }} />
-            <img alt="" loading="lazy" width="163" height="72" decoding="async" data-nimg="1" src="/images/text@logo.svg" style={{ color: 'transparent' }} />
-          </Link>
-          <div className="mt-12">
-            <div className="grid gap-2">
-              <div className="flex items-center justify-between p-3 cursor-pointer group relative rounded-xl overflow-hidden">
-                <div className="absolute left-0 w-full gradient from-primary-200 to-primary-300 bg-gradient-to-r top-0 h-full"></div>
-                <div className="flex items-center gap-3 relative">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20.04 6.82L14.28 2.79C12.71 1.69 10.3 1.75 8.78999 2.92L3.77999 6.83C2.77999 7.61 1.98999 9.21 1.98999 10.47V17.37C1.98999 19.92 4.05999 22 6.60999 22H17.39C19.94 22 22.01 19.93 22.01 17.38V10.6C22.01 9.25 21.14 7.59 20.04 6.82ZM12.75 18C12.75 18.41 12.41 18.75 12 18.75C11.59 18.75 11.25 18.41 11.25 18V15C11.25 14.59 11.59 14.25 12 14.25C12.41 14.25 12.75 14.59 12.75 15V18Z" className="fill-[#fff] dark:fill-[#fff]" />
-                  </svg>
-                  <span className="text-l font-jakarta font-semibold capitalize dark:group-hover:text-[#fcfcfc] group-hover:text-[#1A1D1F] text-white">dashboard</span>
-                </div>
-              </div>
-              <div className="overflow-hidden" style={{ height: '0px' }}></div>
-              <div className="flex items-center justify-between p-3 cursor-pointer group relative rounded-xl overflow-hidden">
-                <div className="flex items-center gap-3 relative">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M22.1598 7.1842L19.2327 3.21844C18.6671 2.45219 17.7713 2 16.8189 2H7.18107C6.22871 2 5.33291 2.45219 4.76735 3.21844L1.84025 7.1842C1.04652 8.25957 1.05993 9.73033 1.87315 10.791L9.61919 20.8946C10.82 22.4609 13.18 22.4609 14.3808 20.8946L22.1269 10.791C22.9401 9.73033 22.9535 8.25957 22.1598 7.1842ZM3.72389 8L6.3765 4.40615C6.56502 4.15073 6.86362 4 7.18107 4H16.8189C17.1364 4 17.435 4.15073 17.6235 4.40615L20.2761 8H3.72389ZM3.78682 10L11.2064 19.6777C11.6067 20.1998 12.3933 20.1998 12.7936 19.6777L20.2132 10H3.78682Z" fill="#666666" />
-                  </svg>
-                  <span className="text-l font-jakarta font-semibold capitalize dark:group-hover:text-[#fcfcfc] group-hover:text-[#1A1D1F] text-primary-700">campaigns</span>
-                </div>
-                <button className="w-6 h-6 rotate-180">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M18 15L12 9L6 15" stroke="#666666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
-                  </svg>
-                </button>
-              </div>
-              <div className="overflow-hidden" style={{ height: '0px' }}>
-                <a href="/services/email">
-                  <div className="flex items-center cursor-pointer group">
-                    <svg width="37" height="53" viewBox="0 0 37 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M23 1C23 0.447715 23.4477 0 24 0V0C24.5523 0 25 0.447715 25 1V52.6536H23V1Z" fill="#EFEFEF"></path>
-                      <path d="M24 13.1634V18.3268C24 22.7451 27.5817 26.3268 32 26.3268H36" stroke="#EFEFEF" strokeWidth="2" strokeLinecap="round"></path>
-                    </svg>
-                    <div className="w-[calc(100%-37px)] flex items-center justify-between p-3">
-                      <div className="font-jakarta text-l leading-l font-semibold text-primary-700 hover:text-black dark:hover:text-white">New Campaign</div>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z" className="fill-[#0B0A10] dark:fill-white"></path>
-                        <path d="M16 12.75H8C7.59 12.75 7.25 12.41 7.25 12C7.25 11.59 7.59 11.25 8 11.25H16C16.41 11.25 16.75 11.59 16.75 12C16.75 12.41 16.41 12.75 16 12.75Z" className="fill-[#0B0A10] dark:fill-white"></path>
-                        <path d="M12 16.75C11.59 16.75 11.25 16.41 11.25 16V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V16C12.75 16.41 12.41 16.75 12 16.75Z" className="fill-[#0B0A10] dark:fill-white"></path>
-                      </svg>
-                    </div>
-                  </div>
-                </a>
-                <a href="/campaigns/scheduled">
-                  <div className="flex items-center cursor-pointer group">
-                    <span className="-mt-1">
-                      <svg width="37" height="48" viewBox="0 0 37 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="23" width="2" height="17.8703" fill="#EFEFEF"></rect>
-                        <path d="M24 13.4027V18.8054C24 23.2237 27.5817 26.8054 32 26.8054H36" stroke="#EFEFEF" strokeWidth="2" strokeLinecap="round"></path>
-                      </svg>
-                    </span>
-                    <div className="w-[calc(100%-37px)] flex items-center justify-between p-3">
-                      <div className="font-jakarta text-l leading-l font-semibold text-primary-700 hover:text-black dark:hover:text-white">Scheduled</div>
-                      <div className="w-6 h-6 rounded-md grid place-content-center font-jakarta font-semibold text-white dark:text-[#3B3C40]" style={{ background: 'white' }}></div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div className="flex items-center justify-between p-3 cursor-pointer group relative rounded-xl overflow-hidden">
-                <div className="flex items-center gap-3 relative">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M8 5.75C7.59 5.75 7.25 5.41 7.25 5V2C7.25 1.59 7.59 1.25 8 1.25C8.41 1.25 8.75 1.59 8.75 2V5C8.75 5.41 8.41 5.75 8 5.75Z" fill="#666666"></path>
-                    <path d="M16 5.75C15.59 5.75 15.25 5.41 15.25 5V2C15.25 1.59 15.59 1.25 16 1.25C16.41 1.25 16.75 1.59 16.75 2V5C16.75 5.41 16.41 5.75 16 5.75Z" fill="#666666"></path>
-                    <path d="M15 22.75H9C3.38 22.75 2.25 20.1 2.25 15.82V9.65C2.25 4.91 3.85 2.98 7.96 2.75H16C16.01 2.75 16.03 2.75 16.04 2.75C20.15 2.98 21.75 4.91 21.75 9.65V15.82C21.75 20.1 20.62 22.75 15 22.75ZM8 4.25C5.2 4.41 3.75 5.29 3.75 9.65V15.82C3.75 19.65 4.48 21.25 9 21.25H15C19.52 21.25 20.25 19.65 20.25 15.82V9.65C20.25 5.3 18.81 4.41 15.98 4.25H8Z" fill="#666666"></path>
-                    <path d="M20.75 18.35H3.25C2.84 18.35 2.5 18.01 2.5 17.6C2.5 17.19 2.84 16.85 3.25 16.85H20.75C21.16 16.85 21.5 17.19 21.5 17.6C21.5 18.01 21.16 18.35 20.75 18.35Z" fill="#666666"></path>
-                    <path d="M12 8.25C10.77 8.25 9.73 8.92 9.73 10.22C9.73 10.84 10.02 11.31 10.46 11.61C9.85 11.97 9.5 12.55 9.5 13.23C9.5 14.47 10.45 15.24 12 15.24C13.54 15.24 14.5 14.47 14.5 13.23C14.5 12.55 14.15 11.96 13.53 11.61C13.98 11.3 14.26 10.84 14.26 10.22C14.26 8.92 13.23 8.25 12 8.25ZM12 11.09C11.48 11.09 11.1 10.78 11.1 10.29C11.1 9.79 11.48 9.5 12 9.5C12.52 9.5 12.9 9.79 12.9 10.29C12.9 10.78 12.52 11.09 12 11.09ZM12 14C11.34 14 10.86 13.67 10.86 13.07C10.86 12.47 11.34 12.15 12 12.15C12.66 12.15 13.14 12.48 13.14 13.07C13.14 13.67 12.66 14 12 14Z" fill="#666666"></path>
-                  </svg>
-                  <span className="text-l font-jakarta font-semibold capitalize dark:group-hover:text-[#fcfcfc] group-hover:text-[#1A1D1F] text-primary-700">calendar</span>
-                </div>
-              </div>
-              <div className="overflow-hidden" style={{ height: '0px' }}></div>
-              <div className="flex items-center justify-between p-3 cursor-pointer group relative rounded-xl overflow-hidden">
-                <div className="flex items-center gap-3 relative">
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.4299 16.7024H11.3324C8.00239 16.7024 6.39739 15.3899 6.11989 12.4499C6.08989 12.1424 6.31489 11.8649 6.62989 11.8349C6.92989 11.8049 7.21489 12.0374 7.24489 12.3449C7.46239 14.6999 8.57239 15.5774 11.3399 15.5774H11.4374C14.4899 15.5774 15.5699 14.4974 15.5699 11.4449V6.55486C15.5699 3.50236 14.4899 2.42236 11.4374 2.42236H11.3399C8.55739 2.42236 7.44739 3.31486 7.24489 5.71486C7.20739 6.02236 6.94489 6.25486 6.62989 6.22486C6.31489 6.20236 6.08989 5.92486 6.11239 5.61736C6.36739 2.63236 7.97989 1.29736 11.3324 1.29736H11.4299C15.1124 1.29736 16.6874 2.87236 16.6874 6.55486V11.4449C16.6874 15.1274 15.1124 16.7024 11.4299 16.7024Z" fill="#666666"></path>
-                    <path d="M11.4299 16.7024H11.3324C8.00239 16.7024 6.39739 15.3899 6.11989 12.4499C6.08989 12.1424 6.31489 11.8649 6.62989 11.8349C6.92989 11.8049 7.21489 12.0374 7.24489 12.3449C7.46239 14.6999 8.57239 15.5774 11.3399 15.5774H11.4374C14.4899 15.5774 15.5699 14.4974 15.5699 11.4449V6.55486C15.5699 3.50236 14.4899 2.42236 11.4374 2.42236H11.3399C8.55739 2.42236 7.44739 3.31486 7.24489 5.71486C7.20739 6.02236 6.94489 6.25486 6.62989 6.22486C6.31489 6.20236 6.08989 5.92486 6.11239 5.61736C6.36739 2.63236 7.97989 1.29736 11.3324 1.29736H11.4299C15.1124 1.29736 16.6874 2.87236 16.6874 6.55486V11.4449C16.6874 15.1274 15.1124 16.7024 11.4299 16.7024Z" fill="black" fillOpacity="0.2"></path>
-                    <path d="M11.2498 9.5625H2.71484C2.40734 9.5625 2.15234 9.3075 2.15234 9C2.15234 8.6925 2.40734 8.4375 2.71484 8.4375H11.2498C11.5573 8.4375 11.8123 8.6925 11.8123 9C11.8123 9.3075 11.5573 9.5625 11.2498 9.5625Z" fill="#666666"></path>
-                    <path d="M4.38758 12.0751C4.24508 12.0751 4.10258 12.0226 3.99008 11.9101L1.47758 9.39763C1.26008 9.18013 1.26008 8.82013 1.47758 8.60263L3.99008 6.09013C4.20758 5.87263 4.56758 5.87263 4.78508 6.09013C5.00258 6.30763 5.00258 6.66763 4.78508 6.88513L2.67008 9.00013L4.78508 11.1151C5.00258 11.3326 5.00258 11.6926 4.78508 11.9101C4.68008 12.0226 4.53008 12.0751 4.38758 12.0751Z" fill="#666666"></path>
-                  </svg>
-                  <span className="text-l font-jakarta font-semibold capitalize dark:group-hover:text-[#fcfcfc] group-hover:text-[#1A1D1F] text-primary-700">Log Out</span>
-                </div>
-              </div>
-              <div className="overflow-hidden" style={{ height: '0px' }}></div>
-            </div>
-            <div className="mt-6 px-3">
-              <p className="font-jakarta font-semibold text-l text-primary-700">Connect Social Network</p>
-              <div className="mt-4 flex flex-wrap gap-[14px]">
-              <div className="w-10 h-10 flex justify-center items-center rounded-full border border-[#A1A1A1] bg-[#E6E6E6] cursor-pointer" style={{ filter: 'none', overflow: 'hidden' }}>
-  <img 
-    alt="linkedin" 
-    loading="lazy" 
-    width="100%" 
-    height="100%" 
-    decoding="async" 
-    srcSet="https://upload.wikimedia.org/wikipedia/commons/e/e9/Linkedin_icon.svg 1x, https://upload.wikimedia.org/wikipedia/commons/e/e9/Linkedin_icon.svg 2x" 
-    src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Linkedin_icon.svg" 
-    style={{ color: 'transparent', objectFit: 'cover' }} 
-    className="jsx-74c6043404f319c0" 
-  />
-</div>
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="pb-[52px]">
-          <div className="flex gap-[14px] items-center p-3">
-            <div className="">
-              <div className="rounded-full relative overflow-hidden grid place-content-center" style={{ width: '48px', height: '48px' }}>
-                <div className="absolute left-0 w-full gradient from-primary-200 to-primary-300 bg-gradient-to-r top-0 h-full"></div>
-                <div className="m-[1px] relative" style={{ width: '46px', height: '46px' }}>
-                  <img alt="" loading="lazy" decoding="async" data-nimg="fill" sizes="100vw" srcSet="/_next/image?url=%2Fimages%2Flogo%40head-fill.png&w=640&q=75 640w, /_next/image?url=%2Fimages%2Flogo%40head-fill.png&w=750&q=75 750w, /_next/image?url=%2Fimages%2Flogo%40head-fill.png&w=828&q=75 828w, /_next/image?url=%2Fimages%2Flogo%40head-fill.png&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Flogo%40head-fill.png&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Flogo%40head-fill.png&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Flogo%40head-fill.png&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Flogo%40head-fill.png&w=3840&q=75 3840w" src="/_next/image?url=%2Fimages%2Flogo%40head-fill.png&w=3840&q=75" style={{ position: 'absolute', height: '100%', width: '100%', inset: 0, color: 'transparent' }} />
-                </div>
-              </div>
-            </div>
-            <div className="">
-              <h5 className="text-l font-bold font-jakarta gradient-text-1">SALMAN ARSHAD</h5>
-              <address className="text-sm font-jakarta text-primary-700 not-italic">salmanarshad7815@gmail.com</address>
-            </div>
-          </div>
-          <div className="w-full p-4 max-w-sm bg-white rounded-lg border shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700 mt-4" style={{ border: '1px solid rgb(255, 123, 2)', background: 'rgb(255, 248, 242)' }}>
-            <div className="flex justify-between items-center mb-4">
-              <span className="text-xs font-medium text-gray-500 dark:text-gray-300">Free Plan</span>
-              <span className="text-xs font-semibold text-gray-500 dark:text-gray-300">337/3000</span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-              <div className="bg-orange-500 h-2.5 rounded-full" style={{ width: '11.2333%' }}></div>
-            </div>
-          </div>
-          <div className="">
-            <div className="flex items-center gap-[14px] font-jakarta font-bold text-md leading-md py-3 px-5 relative rounded-[10px] overflow-hidden cursor-pointer mt-2">
-              <div className="absolute left-0 top-0 w-full gradient from-secondary-100 to-secondary-200 bg-gradient-to-r top-0 h-full"></div>
-              <span className="relative z-10">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9.99008 22.7499C9.79008 22.7499 9.63008 22.7099 9.51008 22.6599C9.11008 22.5099 8.43008 22.0199 8.43008 20.4699V14.0199H6.09008C4.75008 14.0199 4.27008 13.3899 4.10008 13.0199C3.93008 12.6399 3.78008 11.8699 4.66008 10.8599L12.2301 2.25988C13.2501 1.09988 14.0801 1.17988 14.4801 1.32988C14.8801 1.47988 15.5601 1.96988 15.5601 3.51988V9.96988H17.9001C19.2401 9.96988 19.7201 10.5999 19.8901 10.9699C20.0601 11.3499 20.2101 12.1199 19.3301 13.1299L11.7601 21.7299C11.0501 22.5399 10.4301 22.7499 9.99008 22.7499ZM13.9301 2.73988C13.9001 2.77988 13.6901 2.87988 13.3601 3.25988L5.79008 11.8599C5.51008 12.1799 5.47008 12.3799 5.47008 12.4199C5.49008 12.4299 5.67008 12.5299 6.09008 12.5299H9.18008C9.59008 12.5299 9.93008 12.8699 9.93008 13.2799V20.4799C9.93008 20.9799 10.0201 21.1999 10.0601 21.2599C10.0901 21.2199 10.3001 21.1199 10.6301 20.7399L18.2001 12.1399C18.4801 11.8199 18.5201 11.6199 18.5201 11.5799C18.5001 11.5699 18.3201 11.4699 17.9001 11.4699H14.8101C14.4001 11.4699 14.0601 11.1299 14.0601 10.7199V3.51988C14.0701 3.01988 13.9701 2.80988 13.9301 2.73988Z" fill="white"></path>
-                </svg>
-              </span>
-              <span className="relative text-white">Upgrade Plan</span>
-            </div>
-          </div>
-          <div className="my-4 h-0.5 w-full bg-[#F4F4F4] dark:bg-[#272B30]"></div>
-          <div className="p-3 flex items-center justify-between">
-            <div className="flex gap-2 items-center">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" clipRule="evenodd" d="M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#6F767E" />
-                <circle cx="12" cy="18" r="1" fill="#6F767E"></circle>
-                <path fillRule="evenodd" clipRule="evenodd" d="M12 8C11.1307 8 10.3886 8.5551 10.1135 9.33325C9.92948 9.85396 9.35815 10.1269 8.83744 9.94284C8.31672 9.75879 8.0438 9.18747 8.22784 8.66675C8.77648 7.11451 10.2568 6 12 6C14.2091 6 16 7.79086 16 10C16 11.8638 14.7252 13.4299 13 13.874V15C13 15.5523 12.5523 16 12 16C11.4477 16 11 15.5523 11 15V13C11 12.4477 11.4477 12 12 12C13.1045 12 14 11.1046 14 10C14 8.89543 13.1045 8 12 8Z" fill="#6F767E" />
-              </svg>
-              <p className="font-jakarta text-l leading-l font-semibold text-primary-700">
-                <a rel="noopener noreferrer" target="_blank" href="https://bizgen-io.gitbook.io/bizgen.io-product-documentation">Help &amp; getting started</a>
-              </p>
-            </div>
-          </div>
-          <p className="font-jakarta text-l leading-l font-semibold text-primary-700">
-            <a rel="noopener noreferrer" href="mailto:contact@bizgen.io">Contact Support</a>
-          </p>
-        </div>
-      </div>
-      </div>
-      </div>
-    </div>
       {/* <main className="content">
         <header className="dashboard-header">
           <p>Friday 16, 2024</p>
@@ -2031,11 +1847,11 @@ const Dashboard: React.FC = () => {
           <p className="font-jakarta text-md xl:text-l leading-md xl:leading-l text-primary-700">
             Generate blogs SEO optimized for you business.
           </p>
-          <a className="inline-block" href="/services/blog_post_full">
+          <Link className="inline-block" href="/services/blog_post_full">
             <div className="bg-[#C5E9FF] rounded-md overflow-hidden px-6 py-2.5 font-inter font-semibold mt-[38px]">
               Generate Posts
             </div>
-          </a>
+          </Link>
         </div>
         <div className="py-6 px-10 rounded-[20px] 2xl:rounded-[28px] bg-white shadow-card-1">
           <div className="border-b border-primary-700 flex items-center justify-center">
@@ -2066,11 +1882,11 @@ const Dashboard: React.FC = () => {
             Create personalized, engaging, and goal-oriented email content,
             supporting a variety of campaign objectives.
           </p>
-          <a className="inline-block" href="/services/email">
+          <Link className="inline-block" href="/services/email">
             <div className="bg-[#C5E9FF] rounded-md overflow-hidden px-6 py-2.5 font-inter font-semibold mt-[38px]">
               Start Campaign
             </div>
-          </a>
+          </Link>
         </div>
         <div className="py-6 px-10 rounded-[20px] 2xl:rounded-[28px] bg-white shadow-card-1">
           <div className="border-b border-primary-700 flex items-center justify-center">
@@ -2098,7 +1914,7 @@ const Dashboard: React.FC = () => {
             Youtube Script Wizard
           </h5>
           <p className="font-jakarta text-md xl:text-l leading-md xl:leading-l text-primary-700">
-            Generate detailed script outlines that align with the user's
+            Generate detailed script outlines that align with the users
             business goals and speak directly to their ideal client avatar.
           </p>
           <a className="inline-block" href="/services/youtube_script">
@@ -2602,6 +2418,7 @@ button.w-[30px].h-[30px].rounded-l-lg.overflow-hidden.absolute.right-0.top-[80px
         }
       `}</style>
     </div>
+    </Layout>
   );
 };
 
