@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Link from 'next/link';
 const Dashboard: React.FC = () => {
     const [isCollapsed, setIsCollapsed] = useState(false);
 
@@ -31,10 +31,10 @@ const Dashboard: React.FC = () => {
         </button>
       <div className="flex flex-col h-full justify-between">
         <div>
-          <a className="flex items-center gap-[14px] mt-6 py-6 px-5" href="/">
+          <Link className="flex items-center gap-[14px] mt-6 py-6 px-5" href="/">
             <img alt="" loading="lazy" width="72" height="72" decoding="async" data-nimg="1" srcSet="/_next/image?url=%2Fimages%2Flogo%40head.png&w=96&q=75 1x, /_next/image?url=%2Fimages%2Flogo%40head.png&w=256&q=75 2x" src="/_next/image?url=%2Fimages%2Flogo%40head.png&w=256&q=75" style={{ color: 'transparent' }} />
             <img alt="" loading="lazy" width="163" height="72" decoding="async" data-nimg="1" src="/images/text@logo.svg" style={{ color: 'transparent' }} />
-          </a>
+          </Link>
           <div className="mt-12">
             <div className="grid gap-2">
               <div className="flex items-center justify-between p-3 cursor-pointer group relative rounded-xl overflow-hidden">
